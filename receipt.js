@@ -1,4 +1,4 @@
-// The Daily Grind's receipt: six small functions for you to finish.
+// The Daily Grind's receipt: nine small functions for you to finish.
 //
 // How to read a function (the Functions chapter teaches you to write your own):
 // - The names in parentheses, such as price and quantity, are the values the function is handed.
@@ -77,6 +77,43 @@ export function earnedFreeDrink(stamps) {
  * quantityFromText('two') -> NaN
  */
 export function quantityFromText(typed) {
+  // TODO: replace 0 with a conversion.
+  return 0;
+}
+
+/*
+ * How many boxes hold all the items, when a box holds perBox of them. A part-full box still counts.
+ * (Numbers in Depth: the Math toolbox.)
+ *
+ * boxesNeeded(25, 6) -> 5     (4 full boxes, and one more for the last muffin)
+ * boxesNeeded(24, 6) -> 4
+ */
+export function boxesNeeded(items, perBox) {
+  // TODO: replace 0 with your calculation.
+  return 0;
+}
+
+/*
+ * An amount as US money, the way people in the US read it: a dollar sign, commas between
+ * thousands and two decimal places. Ask toLocaleString for "en-US", with these options:
+ * { style: "currency", currency: "USD" }  (Numbers in Depth: showing numbers to people.)
+ *
+ * moneyText(58638.75) -> '$58,638.75'
+ * moneyText(4.5) -> '$4.50'
+ */
+export function moneyText(amount) {
+  // TODO: replace '' with the amount as US money.
+  return '';
+}
+
+/*
+ * The number of ounces in a cup size the supplier writes as text, such as '12oz'.
+ * (Types and Converting Between Them: parseInt and parseFloat.)
+ *
+ * ouncesFromLabel('12oz') -> 12
+ * ouncesFromLabel('16 oz') -> 16
+ */
+export function ouncesFromLabel(label) {
   // TODO: replace 0 with a conversion.
   return 0;
 }

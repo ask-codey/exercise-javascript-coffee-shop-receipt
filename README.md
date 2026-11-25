@@ -2,7 +2,7 @@
 
 Exercise code for the lesson **Exercise: Coffee Shop Receipt** in JavaScript in Depth on [ask-codey.com](https://www.ask-codey.com).
 
-The Daily Grind, a neighborhood coffee shop, wants its order app to print receipts. You'll finish six small functions in `receipt.js` that work out a receipt's numbers and text: the subtotal, the sales tax, the tip, a receipt line, whether a loyalty card has earned a free drink, and the quantity a customer typed. Tests check every function.
+The Daily Grind, a neighborhood coffee shop, wants its order app to print receipts. You'll finish nine small functions in `receipt.js` that work out a receipt's numbers and text: the subtotal, the sales tax, the tip, a receipt line, whether a loyalty card has earned a free drink, and the quantity a customer typed; then, for the shop's ordering and year-end report, how many boxes an order needs, an amount as US money, and the ounces in a cup size. Tests check every function.
 
 ## Before you start
 
@@ -10,7 +10,7 @@ You need Node.js installed (`node --version` in a terminal prints its version). 
 
 ## What's here
 
-- `receipt.js`: the six functions, each returning a placeholder (`0`, `''` or `false`) for now. The comment above each one says what it should return, with examples. For you to finish.
+- `receipt.js`: the nine functions, each returning a placeholder (`0`, `''` or `false`) for now. The comment above each one says what it should return, with examples. For you to finish.
 - `print-receipt.js`: prints a whole receipt for one order, using your functions, so you can see them at work. Ready to use.
 - `receipt.test.js`: the tests that check your functions. You don't need to change it.
 - `package.json`: tells Node that these files share functions with `import` and `export`. Ready to use.
@@ -52,6 +52,9 @@ At first every test fails: that is expected. Each function you finish turns its 
 - 15% of an amount is the amount times 15, divided by 100.
 - `toFixed(2)` shows a number with two decimal places, and `$${...}` puts a dollar sign in front of a blank in a template literal.
 - Text from a box is always a string, and `Number(...)` turns it into a number.
+- A box that's only part full still counts, so round the number of boxes up: *Numbers in Depth* has the tool.
+- `toLocaleString` with `"en-US"` and the currency options in the comment writes US money.
+- `Number('12oz')` is `NaN`. *Types and Converting Between Them* shows the converter that reads a number off the front of text.
 
 ## Hand it in
 

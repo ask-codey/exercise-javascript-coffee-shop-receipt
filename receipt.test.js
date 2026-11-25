@@ -2,7 +2,7 @@
 // You don't need to change this file.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { subtotal, salesTax, tip, receiptLine, earnedFreeDrink, quantityFromText } from './receipt.js';
+import { subtotal, salesTax, tip, receiptLine, earnedFreeDrink, quantityFromText, boxesNeeded, moneyText, ouncesFromLabel } from './receipt.js';
 
 test('subtotal: the price times the quantity', () => {
   assert.equal(subtotal(4.75, 2), 9.5, 'Two lattes at $4.75 come to 9.5.');
@@ -38,4 +38,22 @@ test('quantityFromText: what the customer typed, as a number', () => {
   assert.equal(quantityFromText('2'), 2, "The text '2' becomes the number 2.");
   assert.equal(quantityFromText(' 3 '), 3, "The text ' 3 ' becomes the number 3.");
   assert.ok(Number.isNaN(quantityFromText('two')), "The text 'two' isn't a number, so the answer is NaN.");
+});
+
+test('boxesNeeded: every item fits, so a part-full box counts', () => {
+  assert.equal(boxesNeeded(25, 6), 5, '25 muffins, 6 to a box, need 5 boxes: 4 full and 1 for the last muffin.');
+  assert.equal(boxesNeeded(24, 6), 4, '24 muffins, 6 to a box, fill exactly 4 boxes.');
+  assert.equal(boxesNeeded(1250, 12), 105, '1250 muffins, 12 to a box, need 105 boxes.');
+});
+
+test('moneyText: the amount as US money', () => {
+  assert.equal(moneyText(58638.75), '$58,638.75', "The year's revenue, 58638.75, shows as $58,638.75.");
+  assert.equal(moneyText(4.5), '$4.50', '4.5 shows as $4.50, with two decimal places.');
+  assert.equal(moneyText(1250), '$1,250.00', '1250 shows as $1,250.00.');
+});
+
+test('ouncesFromLabel: the number at the front of a cup size', () => {
+  assert.equal(ouncesFromLabel('12oz'), 12, "The label '12oz' is 12 ounces.");
+  assert.equal(ouncesFromLabel('16 oz'), 16, "The label '16 oz' is 16 ounces.");
+  assert.equal(ouncesFromLabel('8oz'), 8, "The label '8oz' is 8 ounces.");
 });
